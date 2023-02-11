@@ -1,6 +1,26 @@
 name: GitHub Actions Demo
 run-name: ${{ github.actor }} is testing out GitHub Actions 🚀
-on: [push]
+on:
+  workflow_dispatch:
+    inputs:
+      commit_hash:
+        description: Previously-built commit hash to deploy. Defaults to the latest commit on the deployed branch.
+        required: false
+        type: string
+      utila_env:
+        description: Utila environment to deploy into.
+        options:
+          - dev-1
+          - staging-1
+          - prod-1
+        required: true
+        default: dev-1
+        type: choice
+      k8s_ns:
+        description: Kubernetes namespace to deploy into.
+        required: true
+        default: default
+        type: string
 jobs:
   Explore-GitHub-Actions:
     runs-on: ubuntu-latest
