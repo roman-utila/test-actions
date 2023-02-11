@@ -1,5 +1,5 @@
 name: deploy
-run-name: ${{ github.actor }} is testing out GitHub Actions 🚀
+run-name: e2e
 on:
   workflow_dispatch:
     inputs:
@@ -22,7 +22,7 @@ on:
         default: default
         type: string
 jobs:
-  deploy:
+  apply-k8s:
     runs-on: ubuntu-latest
     steps:
       - run: echo "🎉 The job was automatically triggered by a ${{ github.event_name }} event."
