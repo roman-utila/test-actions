@@ -1,5 +1,5 @@
 name: deploy
-run-name: e2e
+run-name: deploy
 on:
   workflow_dispatch:
     inputs:
