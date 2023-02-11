@@ -1,4 +1,4 @@
-name: e2e-aaa
+name: e2e
 run-name: e2e
 on:
   workflow_dispatch:
