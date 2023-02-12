@@ -1,4 +1,4 @@
-name: Deploy uploaded artifacts
+name: Build and upload artifacts
 on:
   workflow_dispatch:
     inputs:
