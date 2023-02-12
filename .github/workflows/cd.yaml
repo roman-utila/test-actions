@@ -2,29 +2,16 @@ name: Build and upload artifacts
 on:
   workflow_dispatch:
     inputs:
-      commit_hash:
+      k8s_ns:
         description: Previously-built commit hash to deploy. Defaults to the latest commit on the deployed branch.
         required: false
-        type: string
-      utila_env:
-        description: Utila environment to deploy into.
-        options:
-          - dev-1
-          - staging-1
-          - prod-1
-        required: true
-        default: dev-1
-        type: choice
-      k8s_ns:
-        description: Kubernetes namespace to deploy into.
-        required: true
-        default: default
         type: string
 jobs:
   apply-k8s:
     runs-on: ubuntu-latest
     steps:
       - run: echo "🎉 The job was automatically triggered by a ${{ github.event_name }} event."
+      - run: echo "With k8s_ns {{ inputs.k8s_ns }}"
       - run: echo "🐧 This job is now running on a ${{ runner.os }} server hosted by GitHub!"
       - run: echo "🔎 The name of your branch is ${{ github.ref }} and your repository is ${{ github.repository }}."
       - name: Check out repository code
