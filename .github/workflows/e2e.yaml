@@ -1,25 +1,11 @@
-name: e2e
+name: Run e2e tests
 run-name: e2e
 on:
   workflow_dispatch:
     inputs:
-      commit_hash:
-        description: Previously-built commit hash to deploy. Defaults to the latest commit on the deployed branch.
+      api_host:
+        description: Utila API hostname. If omitted, the tests will run against dev.
         required: false
-        type: string
-      utila_env:
-        description: Utila environment to deploy into.
-        options:
-          - dev-1
-          - staging-1
-          - prod-1
-        required: true
-        default: dev-1
-        type: choice
-      k8s_ns:
-        description: Kubernetes namespace to deploy into.
-        required: true
-        default: default
         type: string
 jobs:
   e2e:
