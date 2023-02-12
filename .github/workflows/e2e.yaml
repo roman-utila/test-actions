@@ -1,5 +1,4 @@
 name: Run e2e tests
-run-name: e2e
 on:
   workflow_dispatch:
     inputs:
