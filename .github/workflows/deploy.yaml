@@ -1,4 +1,4 @@
-name: deploy
+name: Deploy uploaded artifacts
 run-name: deploy
 on:
   workflow_dispatch:
